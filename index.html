@@ -94,7 +94,6 @@
     .services {
       background: #f5f8fb;
       padding: 28px 48px 32px;
-      flex: 1;
     }
 
     .services-intro {
@@ -156,6 +155,163 @@
       color: #555;
     }
 
+    /* ── ASSESSMENTS ── */
+    .assessments {
+      background: #fff;
+      padding: 28px 48px 36px;
+      border-top: 1px solid #e0eaf2;
+    }
+
+    .assessments-intro {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .assessments-intro h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1a2e40;
+      white-space: nowrap;
+    }
+
+    .assessments-intro p {
+      font-size: 0.85rem;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .assessment-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .assessment-card {
+      background: #f5f8fb;
+      border-radius: 6px;
+      padding: 18px 20px;
+      border: 1px solid #e0eaf2;
+      cursor: pointer;
+      transition: box-shadow 0.15s ease;
+    }
+
+    .assessment-card:hover { box-shadow: 0 2px 12px rgba(26,46,64,0.09); }
+
+    .assessment-card.expanded { border-color: #4a9eca; }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .card-header h3 {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #1a2e40;
+      margin-bottom: 6px;
+    }
+
+    .card-toggle {
+      font-size: 1.3rem;
+      font-weight: 300;
+      color: #4a9eca;
+      line-height: 1;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+      user-select: none;
+      margin-top: 1px;
+    }
+
+    .assessment-card.expanded .card-toggle { transform: rotate(45deg); }
+
+    .card-summary {
+      font-size: 0.8rem;
+      line-height: 1.55;
+      color: #555;
+      margin: 0;
+    }
+
+    .card-detail {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .assessment-card.expanded .card-detail { max-height: 3000px; }
+
+    .card-section {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid #dde6ef;
+    }
+
+    .card-section h4 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #1a2e40;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 10px;
+    }
+
+    .card-dims, .card-deliverables {
+      list-style: none;
+      padding: 0;
+    }
+
+    .card-dims { counter-reset: dim; }
+    .card-dims li { counter-increment: dim; }
+    .card-dims li::before { content: counter(dim); }
+
+    .card-deliverables { counter-reset: del; }
+    .card-deliverables li { counter-increment: del; }
+    .card-deliverables li::before { content: counter(del); }
+
+    .card-dims li, .card-deliverables li {
+      position: relative;
+      padding-left: 20px;
+      margin-bottom: 7px;
+      font-size: 0.78rem;
+      line-height: 1.5;
+      color: #444;
+    }
+
+    .card-dims li::before, .card-deliverables li::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 700;
+      color: #4a9eca;
+      font-size: 0.75rem;
+    }
+
+    .card-dims li strong { color: #1a2e40; }
+
+    .card-how {
+      font-size: 0.78rem;
+      line-height: 1.55;
+      color: #444;
+    }
+
+    .card-cta {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #fff;
+      background: #4a9eca;
+      padding: 7px 16px;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+
+    .card-cta:hover { background: #357fa8; }
+
     /* ── FOOTER ── */
     .footer {
       background: #1a2e40;
@@ -212,6 +368,10 @@
         grid-template-columns: 1fr;
         gap: 10px;
       }
+
+      .assessments { padding: 24px 16px; }
+      .assessments-intro { flex-direction: column; gap: 4px; margin-bottom: 16px; }
+      .assessment-cards { grid-template-columns: 1fr; gap: 10px; }
 
       .footer {
         flex-direction: column;
@@ -309,6 +469,189 @@
     </div>
   </section>
 
+  <!-- ── ASSESSMENTS ── -->
+  <section class="assessments">
+    <div class="assessments-intro">
+      <h2>Diagnostic assessments</h2>
+      <p>Structured 2-week engagements. Each produces a scored assessment, findings map, and prioritised 90-day plan.</p>
+    </div>
+
+    <div class="assessment-cards">
+
+      <div class="assessment-card">
+        <div class="card-header">
+          <h3>Engineering Effectiveness</h3>
+          <span class="card-toggle">+</span>
+        </div>
+        <p class="card-summary">How your engineering organisation is actually performing, and where to focus first.</p>
+        <div class="card-detail">
+          <div class="card-section">
+            <h4>What we assess</h4>
+            <ol class="card-dims">
+              <li><strong>Legibility.</strong> Service ownership, catalogue completeness, and where knowledge is concentrated across the organisation.</li>
+              <li><strong>Flow health.</strong> Deployment frequency, lead time, change failure rate, MTTR.</li>
+              <li><strong>Stack coherence.</strong> How fragmentation across stacks and platforms affects cognitive load and standards consistency.</li>
+              <li><strong>Absorption capacity.</strong> Pace of delivery, cognitive load, and whether strategy reaches teams and insight reaches leadership.</li>
+              <li><strong>Toolchain integration.</strong> Whether key systems are connected and feeding measurement, or signals are locked inside isolated tools.</li>
+            </ol>
+          </div>
+          <div class="card-section">
+            <h4>How it works</h4>
+            <p class="card-how">Two weeks. Week 1: mapping where metrics live and talking to engineering managers, tech leads, and a sample of engineers. Week 2: analysis, scoring, and report. Each dimension is scored with a confidence level based on what measurement actually exists.</p>
+          </div>
+          <div class="card-section">
+            <h4>What you get</h4>
+            <ol class="card-deliverables">
+              <li>Effectiveness scorecard — organisation-wide and per team</li>
+              <li>Measurement source map with confidence levels per signal</li>
+              <li>Measurement maturity rating on a 0–5 scale</li>
+              <li>Prioritised recommendations and 90-day plan skeleton</li>
+            </ol>
+          </div>
+          <a class="card-cta" href="mailto:maebh@mbooth.dev">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="assessment-card">
+        <div class="card-header">
+          <h3>Operating Model &amp; Org Design</h3>
+          <span class="card-toggle">+</span>
+        </div>
+        <p class="card-summary">Whether your organisation is structured to achieve what it is trying to do, and where the design needs to develop.</p>
+        <div class="card-detail">
+          <div class="card-section">
+            <h4>What we assess</h4>
+            <ol class="card-dims">
+              <li><strong>Team design and fit.</strong> Whether team topology, boundaries, and ownership are set up for where the organisation is going.</li>
+              <li><strong>Decision rights.</strong> Where decisions actually get made, at what level, and whether the formal model matches the lived one.</li>
+              <li><strong>Cross-team dependencies.</strong> How much work requires cross-boundary coordination and whether the mechanisms for managing it are working.</li>
+              <li><strong>Workforce composition.</strong> Whether the skills mix — permanent vs contract, specialist vs generalist — has kept pace with changes in strategy.</li>
+              <li><strong>Strategic alignment.</strong> Whether engineering leaders can articulate the technology strategy and the operating model is visibly connected to direction.</li>
+              <li><strong>Stated vs lived model.</strong> The gap between the model on paper and how the organisation actually functions.</li>
+            </ol>
+          </div>
+          <div class="card-section">
+            <h4>How it works</h4>
+            <p class="card-how">Two weeks. Week 1: reviewing org structure, team charters, and operating model documentation, then talking to engineering leaders and a cross-section of people across the organisation. Week 2: analysis and report, drawing from both the documented model and what people are actually experiencing.</p>
+          </div>
+          <div class="card-section">
+            <h4>What you get</h4>
+            <ol class="card-deliverables">
+              <li>Operating model assessment — where the design supports the strategy and where it works against it</li>
+              <li>Decision rights review — where authority is unclear, duplicated, or at the wrong level</li>
+              <li>Dependency map — the cross-team coordination burden and where it is most costly</li>
+              <li>Prioritised recommendations and 90-day plan skeleton</li>
+            </ol>
+          </div>
+          <a class="card-cta" href="mailto:maebh@mbooth.dev">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="assessment-card">
+        <div class="card-header">
+          <h3>Technical Direction</h3>
+          <span class="card-toggle">+</span>
+        </div>
+        <p class="card-summary">Whether the technology estate has a coherent direction and whether that direction is achievable from where things actually are.</p>
+        <div class="card-detail">
+          <div class="card-section">
+            <h4>What we assess</h4>
+            <ol class="card-dims">
+              <li><strong>Estate visibility.</strong> Whether the organisation has a clear, current picture of what exists, what state it is in, and where significant technical debt sits.</li>
+              <li><strong>Architecture coherence.</strong> Whether architectural decisions are being made deliberately and recorded, or the architecture is drifting through accumulated choices nobody revisited.</li>
+              <li><strong>Platform and tooling strategy.</strong> Whether there is a deliberate platform layer and whether build vs buy decisions are made with a consistent framework.</li>
+              <li><strong>Direction credibility.</strong> Whether there is a target state, whether it is clearly articulated, and whether there is a believable path from here to there.</li>
+              <li><strong>AI position.</strong> Whether the organisation has a considered position on AI in the technical stack, or adoption is reactive and uncoordinated.</li>
+            </ol>
+          </div>
+          <div class="card-section">
+            <h4>How it works</h4>
+            <p class="card-how">Two weeks. Week 1: reviewing architecture documentation, ADRs, roadmaps, and tech strategy, then talking to technical leads, architects, and engineering managers. Week 2: analysis and report, surfacing where documentation and what people are building toward diverge.</p>
+          </div>
+          <div class="card-section">
+            <h4>What you get</h4>
+            <ol class="card-deliverables">
+              <li>Technology direction assessment — current state, target state, and the credibility of the path between them</li>
+              <li>Architecture coherence review — where decisions are deliberate and where the architecture has drifted</li>
+              <li>AI position summary — current stance and what a deliberate position would require</li>
+              <li>Prioritised recommendations and 90-day plan skeleton</li>
+            </ol>
+          </div>
+          <a class="card-cta" href="mailto:maebh@mbooth.dev">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="assessment-card">
+        <div class="card-header">
+          <h3>AI Tooling</h3>
+          <span class="card-toggle">+</span>
+        </div>
+        <p class="card-summary">What AI tooling is in use, whether there is real control over it, and what it is costing and delivering.</p>
+        <div class="card-detail">
+          <div class="card-section">
+            <h4>What we assess</h4>
+            <ol class="card-dims">
+              <li><strong>Tooling landscape.</strong> What AI tools are in use, by whom, for what, and what actual coverage looks like across teams.</li>
+              <li><strong>Adoption intentionality.</strong> Whether adoption is driven by a strategy or has accumulated organically, and whether tools are being applied to the right problems.</li>
+              <li><strong>Governance and guardrails.</strong> What controls exist, what risks are being managed, and what can currently happen without anyone knowing.</li>
+              <li><strong>Value measurement.</strong> Whether outcomes are being tracked or just adoption numbers, and whether the organisation can attribute value to what it is spending.</li>
+              <li><strong>Financial exposure.</strong> Cost visibility, vendor lock-in risk, and whether anyone has modelled what spend looks like as usage scales.</li>
+            </ol>
+          </div>
+          <div class="card-section">
+            <h4>How it works</h4>
+            <p class="card-how">Two weeks. Week 1: mapping what AI tools are in use and what governance exists, then talking to engineering leads, finance or procurement contacts, and a sample of people actually using the tools. Week 2: analysis and report, assessed against both what policies describe and what usage data reveals.</p>
+          </div>
+          <div class="card-section">
+            <h4>What you get</h4>
+            <ol class="card-deliverables">
+              <li>AI tooling and cost inventory — what is in use, by whom, at what cost, and what value is measured against it</li>
+              <li>Governance gap analysis — where controls are missing or untested</li>
+              <li>Vendor risk summary — lock-in exposure and cost trajectory at scale</li>
+              <li>Prioritised recommendations and 90-day plan skeleton</li>
+            </ol>
+          </div>
+          <a class="card-cta" href="mailto:maebh@mbooth.dev">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="assessment-card">
+        <div class="card-header">
+          <h3>Engineering People &amp; Culture</h3>
+          <span class="card-toggle">+</span>
+        </div>
+        <p class="card-summary">Whether the people model in your engineering organisation is set up for the work it needs to do.</p>
+        <div class="card-detail">
+          <div class="card-section">
+            <h4>What we assess</h4>
+            <ol class="card-dims">
+              <li><strong>Role clarity and expectations.</strong> Whether people know what is expected of them, and whether those expectations have kept pace with how the organisation has changed.</li>
+              <li><strong>Career framework alignment.</strong> Whether the framework supports the actual behaviours and skills the work requires, and connects through to recruitment, reward, and development.</li>
+              <li><strong>Strategic communication.</strong> Whether engineers hold the strategy in their minds and understand why the work they're doing matters.</li>
+              <li><strong>Voice and inclusion.</strong> Whether engineers feel genuinely listened to, and whether their input reaches the people who make decisions.</li>
+              <li><strong>Enabling environment.</strong> What the culture at leadership level looks like in practice, and whether it creates the conditions for the engineering organisation to do its best work.</li>
+            </ol>
+          </div>
+          <div class="card-section">
+            <h4>How it works</h4>
+            <p class="card-how">Two weeks. Week 1: reviewing role definitions, career frameworks, and any existing people or culture data, then talking to engineering leaders, people managers, and a cross-section of engineers. Week 2: analysis and report, drawing from both what frameworks describe and what people actually experience day to day.</p>
+          </div>
+          <div class="card-section">
+            <h4>What you get</h4>
+            <ol class="card-deliverables">
+              <li>People model assessment — where expectations, career frameworks, and culture are aligned and where the gaps are</li>
+              <li>Communication and inclusion review — how well strategy reaches teams and ground-level insight reaches leadership</li>
+              <li>Leadership environment summary — what the culture at leadership level is creating for the rest of the organisation</li>
+              <li>Prioritised recommendations and 90-day plan skeleton</li>
+            </ol>
+          </div>
+          <a class="card-cta" href="mailto:maebh@mbooth.dev">Get in touch</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ── FOOTER ── -->
   <footer class="footer">
     <span>Maebh Booth &nbsp;·&nbsp; London, United Kingdom</span>
@@ -317,6 +660,15 @@
       <a href="https://www.linkedin.com/in/maebh-booth-0841b01/" target="_blank">LinkedIn</a>
     </span>
   </footer>
+
+  <script>
+    document.querySelectorAll('.assessment-card').forEach(function(card) {
+      card.addEventListener('click', function(e) {
+        if (e.target.closest('a')) return;
+        card.classList.toggle('expanded');
+      });
+    });
+  </script>
 
 </body>
 </html>

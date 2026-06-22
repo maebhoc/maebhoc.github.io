@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Tooling Assessment — Maebh Booth</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; color: #222; background: #fff; min-height: 100vh; display: flex; flex-direction: column; }
+
+    .site-nav { background: #1a2e40; padding: 14px 48px; display: flex; align-items: center; justify-content: space-between; }
+    .site-nav a { color: #4a9eca; text-decoration: none; font-size: 0.88rem; font-weight: 600; }
+    .site-nav a:hover { text-decoration: underline; }
+    .site-nav .site-name { color: #b0c4d8; font-size: 0.85rem; }
+
+    .assessment-hero { background: #1a2e40; color: #fff; padding: 32px 48px 36px; }
+    .assessment-hero .badge { display: inline-block; background: #4a9eca; color: #fff; font-size: 0.75rem; font-weight: 600; padding: 3px 10px; border-radius: 3px; margin-bottom: 12px; }
+    .assessment-hero h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.2px; }
+    .assessment-hero .lead { font-size: 0.93rem; color: #b0c4d8; line-height: 1.65; max-width: 640px; }
+
+    .assessment-body { max-width: 760px; margin: 0 auto; padding: 40px 48px 56px; flex: 1; }
+
+    .assessment-section { margin-bottom: 40px; }
+    .assessment-section h2 { font-size: 1rem; font-weight: 700; color: #1a2e40; margin-bottom: 14px; padding-bottom: 8px; border-bottom: 2px solid #e0eaf2; }
+    .section-intro { font-size: 0.85rem; color: #666; margin-bottom: 14px; line-height: 1.5; }
+
+    .dimensions { list-style: none; counter-reset: dim; padding: 0; }
+    .dimensions li { counter-increment: dim; position: relative; padding-left: 34px; margin-bottom: 14px; font-size: 0.88rem; line-height: 1.6; color: #444; }
+    .dimensions li::before { content: counter(dim); position: absolute; left: 0; top: 1px; font-weight: 700; color: #4a9eca; font-size: 0.85rem; }
+    .dimensions li strong { color: #1a2e40; }
+
+    .works-text { font-size: 0.88rem; line-height: 1.65; color: #444; margin-bottom: 10px; }
+    .works-list { list-style: disc; padding-left: 22px; margin: 10px 0 14px; }
+    .works-list li { font-size: 0.88rem; line-height: 1.6; color: #444; margin-bottom: 6px; }
+
+    .deliverables { list-style: none; counter-reset: del; padding: 0; }
+    .deliverables li { counter-increment: del; position: relative; padding-left: 34px; margin-bottom: 10px; font-size: 0.88rem; line-height: 1.6; color: #444; }
+    .deliverables li::before { content: counter(del); position: absolute; left: 0; top: 1px; font-weight: 700; color: #4a9eca; font-size: 0.85rem; }
+
+    .assessment-cta { background: #f5f8fb; padding: 32px 48px; text-align: center; border-top: 1px solid #e0eaf2; }
+    .assessment-cta p { font-size: 0.88rem; color: #555; margin-bottom: 16px; }
+    .btn { display: inline-block; background: #4a9eca; color: #fff; padding: 10px 24px; border-radius: 4px; text-decoration: none; font-size: 0.88rem; font-weight: 600; }
+    .btn:hover { background: #357fa8; }
+
+    .footer { background: #1a2e40; color: #b0c4d8; padding: 14px 48px; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; }
+    .footer a { color: #4a9eca; text-decoration: none; margin-left: 20px; }
+    .footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 680px) {
+      .site-nav { padding: 12px 20px; }
+      .assessment-hero { padding: 24px 20px 28px; }
+      .assessment-body { padding: 28px 20px 40px; }
+      .assessment-cta { padding: 24px 20px; }
+      .footer { flex-direction: column; text-align: center; gap: 8px; padding: 16px 20px; }
+      .footer a { margin-left: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a href="/">← Back to mbooth.dev</a>
+    <span class="site-name">Maebh Booth</span>
+  </nav>
+
+  <section class="assessment-hero">
+    <span class="badge">2-week assessment</span>
+    <h1>AI Tooling Assessment</h1>
+    <p class="lead">A 2-week engagement that gives you a clear picture of what AI tooling is actually in use across the organisation, whether there is real control over it, and whether anyone can account for what it is costing and delivering.</p>
+  </section>
+
+  <div class="assessment-body">
+
+    <div class="assessment-section">
+      <h2>What we assess</h2>
+      <p class="section-intro">Five dimensions:</p>
+      <ol class="dimensions">
+        <li><strong>Tooling landscape.</strong> What AI tools are in use, by whom, for what, and what the actual coverage looks like across teams.</li>
+        <li><strong>Adoption intentionality.</strong> Is adoption driven by a strategy, or has it accumulated organically? Are the tools being applied to problems AI is the right answer for?</li>
+        <li><strong>Governance and guardrails.</strong> What controls exist, what risks are being managed, and what can currently happen without anyone knowing.</li>
+        <li><strong>Value measurement.</strong> Are outcomes being tracked, or just adoption numbers? Can the organisation attribute value to what it is spending?</li>
+        <li><strong>Financial exposure.</strong> Cost visibility, vendor lock-in risk, cost control mechanisms, and whether anyone has modelled what the spend looks like as usage scales.</li>
+      </ol>
+    </div>
+
+    <div class="assessment-section">
+      <h2>How it works</h2>
+      <p class="works-text">The engagement runs over two weeks. The first week is tooling audit and structured conversations:</p>
+      <ul class="works-list">
+        <li>Mapping what AI tools are in use, their coverage, and what governance exists</li>
+        <li>Talking to engineering leads, finance or procurement contacts, and a sample of the people actually using the tools</li>
+      </ul>
+      <p class="works-text">The second week is analysis and report. Each dimension is assessed against both what policies and controls describe and what usage data and conversations reveal is actually happening.</p>
+    </div>
+
+    <div class="assessment-section">
+      <h2>What you get</h2>
+      <ol class="deliverables">
+        <li>AI tooling and cost inventory; what is in use, by whom, at what cost, and what value is being measured against it</li>
+        <li>Governance gap analysis; where controls are missing or untested</li>
+        <li>Vendor risk summary; lock-in exposure and cost trajectory if usage scales</li>
+        <li>Prioritised recommendations</li>
+        <li>90-day plan skeleton</li>
+      </ol>
+    </div>
+
+  </div>
+
+  <div class="assessment-cta">
+    <p>To discuss whether this engagement is right for your organisation, get in touch.</p>
+    <a href="mailto:maebh@mbooth.dev" class="btn">Get in touch</a>
+  </div>
+
+  <footer class="footer">
+    <span>Maebh Booth &nbsp;·&nbsp; London, United Kingdom</span>
+    <span>
+      <a href="mailto:maebh@mbooth.dev">maebh@mbooth.dev</a>
+      <a href="https://www.linkedin.com/in/maebh-booth-0841b01/" target="_blank">LinkedIn</a>
+    </span>
+  </footer>
+
+</body>
+</html>
